@@ -1,0 +1,44 @@
+<h1>Projects#new</h1>
+
+<div>
+<%= link_to "Volver", root_path %>
+</div>
+
+<hr/>
+
+<%= form_with(model: @project, local: true) do |form| %>
+    <div class="form-group">
+        <%= form.label :name %>
+        <br/>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :description %>
+        <br/>
+        <%= form.text_area :description %>
+    </div>
+
+        <div class="form-group">
+        <%= form.label :begin %>
+        <br/>
+        <%= form.date_field :begin %>
+    </div>
+
+        <div class="form-group">
+        <%= form.label :end %>
+        <br/>
+        <%= form.date_field :end %>
+    </div>
+ 
+      <div class="form-group">
+        <%= form.label :state %>
+        <br/>
+        <%= form.select :state, Project.states.keys %> 
+    </div>
+
+    <div class="actions">
+        <br/>
+        <%= form.submit %>
+    </div>
+<% end %>

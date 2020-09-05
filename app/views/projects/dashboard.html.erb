@@ -1,0 +1,37 @@
+<h1>Projects</h1>
+
+<% if notice%>
+    <div style="color: white; background-color: black; paddding:10px"><%= notice %></div>
+<%end%>
+
+<div>
+    <%= link_to "Crear nuevo", projects_new_path %>
+    <div style="float: right">
+        <label>Seleccione estado: </label>
+        <%= link_to "Todos", root_path%>
+        <%= link_to "Propuesta", list_filtered_path("propuesta")%>
+        <%= link_to "En progreso", list_filtered_path("en progreso")%>
+        <%= link_to "Terminado", list_filtered_path("terminado")%>
+    </div>
+</div>
+<br/>
+<table style="width:100%">
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Inicio</th>
+        <th>Termino</th>
+        <th>Estado</th>
+    </tr>
+
+    <% @projects.each do |project| %>
+    <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td><%= project.begin %></td>
+        <td><%= project.end %></td>
+        <td><%= project.state %></td>
+    </tr>
+    <% end %>
+
+</table>
